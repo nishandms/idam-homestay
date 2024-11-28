@@ -81,7 +81,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family:  Cormorant Garamond;
+    font-family:  "Cormorant Garamond";
 }
 
 .hero__title-parent span {
@@ -129,7 +129,7 @@ body {
     font-weight: 500;
     line-height: 76.8px;
     text-transform: capitalize;
-    font-family:  Cormorant Garamond;
+    font-family:  "Cormorant Garamond";
 }
 
 .sec-2-description {
@@ -187,7 +187,7 @@ body {
 .sec-footer {
     padding: 20px;
     background-color: #122223;
-    margin: 20px;
+    /* margin: 20px; */
 }
 
 @media only screen and (max-width: 991px) {
