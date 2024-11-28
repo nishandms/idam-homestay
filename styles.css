@@ -3,11 +3,15 @@ body {
     color: #122223 !important;
 }
 
+.screen-lg {
+    display: block;
+}
+
 .header-nav {
     position: absolute;
     left: 0;
     right: 0;
-    top: 0;
+    top: 30px;
     padding: 0px 60px;
     background-color: transparent;
     display: flex;
@@ -15,11 +19,12 @@ body {
     z-index: 1;
     height: 70px;
     align-items: center;
+    color: white;
 }
 
 .sec-1 {
-    padding: 0px 50px 0px;
-    margin-top: 70px;
+    padding: 10px 10px ;
+    /* margin-top: 70px; */
 }
 
 .nav-panel-left {
@@ -36,6 +41,8 @@ body {
 
 .nav-elements a {
     cursor: pointer;
+    color: white;
+    text-decoration: none;
 }
 
 .nav-title {
@@ -63,7 +70,7 @@ body {
 }
 
 .lander-img {
-    border-radius: 25px;
+    border-radius: 10px;
     height: 100vh;
     width: 100%;
     object-fit: cover;
@@ -174,6 +181,7 @@ body {
 
 .sec-3 {
     padding: 0px 80px;
+    margin-bottom: 30px;
 }
 
 .swiper {
@@ -196,8 +204,12 @@ body {
     }
 
     .sec-1 {
-        padding: 0px 10px 0px;
-        margin-top: 70px;
+        padding: 0;
+        /* margin-top: 70px; */
+    }
+
+    .lander-img {
+        border-radius: unset;
     }
 
     .sec-3 {
@@ -220,6 +232,10 @@ body {
 } 
 
 @media only screen and (max-width: 767px) {
+    .screen-lg {
+        display: none;
+    }
+    
     .sec-2-img {
         padding: 0px;
     }
@@ -233,8 +249,11 @@ body {
     }
 
     .sec-1 {
-        padding: 0px 10px 0px;
-        margin-top: 70px;
+        padding: 0;
+    }
+
+    .lander-img {
+        border-radius: unset;
     }
 
     .sec-2 {
