@@ -198,6 +198,11 @@ body {
     /* margin: 20px; */
 }
 
+.img-id-fluid {
+    height: 400px;
+    object-fit: cover;
+}
+
 @media only screen and (max-width: 991px) {
     .sec-2-img {
         padding: 0px;
@@ -228,6 +233,10 @@ body {
         font-size: 64px;
         font-weight: 500;
         line-height: 1.2;
+    }
+
+    .img-id-fluid {
+        height: 600px;
     }
 } 
 
