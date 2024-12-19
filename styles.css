@@ -203,6 +203,34 @@ body {
     object-fit: cover;
 }
 
+.line {
+    border: 1px solid white;
+    width: 100%;
+    margin: 18px 0px;
+}
+
+.footer {
+    font-family:  "Cormorant Garamond";
+}
+
+.footer-icons {
+    color: white !important;
+    font-size: 30px !important;
+}
+
+.circle {
+    padding: 11px;
+    border: 1px solid white;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.h-55-vh {
+    min-height: 55vh;
+}
+
 @media only screen and (max-width: 991px) {
     .sec-2-img {
         padding: 0px;
