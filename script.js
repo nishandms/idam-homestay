@@ -7,6 +7,14 @@ $(document).ready(function () {
   })
 });
 
+$('#ig-btn').click(()=> {
+  window.location="https://www.instagram.com/idam_homestay/";
+});
+
+$('.book-now').click(()=>{
+  window.location="https://wa.me/9037052794";
+})
+
 function adjustSize() {
   let slidePerView = 4;
   console.log($(window).width())

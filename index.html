@@ -10,8 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -19,6 +17,25 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
         <script src="https://kit.fontawesome.com/042ec7075d.js" crossorigin="anonymous"></script>
+        <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "LodgingBusiness",
+              "name": "Idam Homestays",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Your Street Address",
+                "addressLocality": "Wayanad",
+                "addressRegion": "Kerala",
+                "postalCode": "Your Postal Code",
+                "addressCountry": "IN"
+              },
+              "telephone": "+91 9037052794",
+              "url": "https://idamhomestays.com",
+              "image": "URL_to_an_image_of_your_property",
+              "description": "A serene escape surrounded by nature’s beauty in Wayanad, Kerala. Enjoy modern amenities and a tranquil environment at Idam Homestays."
+            }
+            </script>
 </head>
 
 <body>
@@ -30,9 +47,9 @@
             <div class="nav-elements screen-lg"><a href="#contact">Contact</a></div>
         </div>
         <div class="nav-panel-right">
-            <button class="book-now-btn screen-lg">
+            <button class="book-now-btn screen-lg book-now" >
                 <span style="display: flex;">
-                    <i style="margin-right: 2px;" class="material-icons">arrow_right_alt</i>
+                    <i class="fa-solid btn-icon fa-arrow-right"></i>
                     Book now
                 </span>
             </button>
@@ -81,9 +98,9 @@
                 </div>
             </div>
             <div class="is-in-view">
-                <button class="book-now-btn">
+                <button class="book-now-btn book-now">
                     <span style="margin-right: 2px; display: flex;">
-                        <i class="material-icons">arrow_right_alt</i>
+                        <i class="fa-solid btn-icon fa-arrow-right"></i>
                         Book now
                     </span>
                 </button>
@@ -124,19 +141,19 @@
 
                 <div class="row services mt-8">
                     <div class="col-6 col-md-3" style="padding:15px;">
-                        <div><i class="material-icons service-icons">wifi</i></div>
+                        <div><i class="fa-solid fa-wifi service-icons"></i></div>
                         <h5 class="text-24 sm:text-21 lh-1 mt-3 sm:mt-15">Wifi &amp; Internet</h5>
                     </div>
                     <div class="col-6 col-md-3" style="padding:15px;">
-                        <div><i class="material-icons service-icons">tv</i></div>
+                        <div><i class="fa-solid fa-tv service-icons"></i></div>
                         <h5 class="text-24 sm:text-21 lh-1 mt-3 sm:mt-15">Smart TV</h5>
                     </div>
                     <div class="col-6 col-md-3" style="padding:15px;">
-                        <div><i class="material-icons service-icons">local_taxi</i></div>
+                        <div><i class="fa-solid fa-taxi service-icons"></i></div>
                         <h5 class="text-24 sm:text-21 lh-1 mt-3 sm:mt-15">Transportation</h5>
                     </div>
                     <div class="col-6 col-md-3" style="padding:15px;">
-                        <div><i class="material-icons service-icons">bed</i></div>
+                        <div><i class="fa-solid fa-bed service-icons"></i></div>
                         <h5 class="text-24 sm:text-21 lh-1 mt-3 sm:mt-15">Breakfast in Bed</h5>
                     </div>
                 </div>
@@ -183,11 +200,11 @@
     </div>
     <div class="h-55-vh d-flex align-items-center sec-footer footer" id="contact">
         <div class="col-lg-10 text-center d-flex" style="flex-wrap: wrap;">
-            <div class="col-md-4 col-6 contacts d-flex flex-column align-items-center" style="justify-content: wrap;">
-                <div class="circle">
+            <div class="col-md-4 col-6 contacts d-flex flex-column align-items-center" id="ig-btn" style="justify-content: wrap;">
+                <div class="circle" style="cursor: pointer;">
                     <i class="fa-brands fa-instagram text-white footer-icons"></i>
                 </div>
-                <a class="text-white">idam_homestays</a>
+                <a href="https://www.instagram.com/idam_homestay/" class="text-white">idam_homestay</a>
             </div>
             <div class="col-md-4 mb-5 col-12 text-white d-flex align-items-center" style="justify-content: center;">
                 <div class="align-self-center">
@@ -198,16 +215,19 @@
                     </div>
 
                     <div class="text-white">
+                        Near Kurukkanmola GLP school,
+                        <br class="lg:d-none">
+                        Near Kuruvadeep island,
                         Wayanad<br class="lg:d-none">
                         Kerala, India
                     </div>
                 </div>
             </div>
             <div class="col-md-4 col-6 contacts d-flex flex-column align-items-center" style="justify-content: center;">
-                <div class="circle">
+                <div class="circle" style="cursor: pointer;">
                     <i class="fa-solid fa-phone footer-icons"></i>
                 </div>
-                <span class="text-white">+91 9037052794</span>
+                <span class="text-white" style="cursor: pointer;">+91 8073314794</span>
             </div>
         </div>
     </div>

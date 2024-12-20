@@ -231,6 +231,10 @@ body {
     min-height: 55vh;
 }
 
+.btn-icon {
+    margin: 6px 6px;
+}
+
 @media only screen and (max-width: 991px) {
     .sec-2-img {
         padding: 0px;
