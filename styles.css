@@ -71,7 +71,7 @@ body {
 
 .lander-img {
     border-radius: 10px;
-    height: 100vh;
+    height: 97vh;
     width: 100%;
     object-fit: cover;
     filter: brightness(0.6);
@@ -246,6 +246,7 @@ body {
     }
 
     .lander-img {
+        height:100vh;
         border-radius: unset;
     }
 
@@ -294,6 +295,7 @@ body {
     }
 
     .lander-img {
+        height:100vh;
         border-radius: unset;
     }
 
