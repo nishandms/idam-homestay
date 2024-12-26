@@ -235,6 +235,11 @@ body {
     margin: 5px 6px;
 }
 
+
+.swiper-button-next, .swiper-button-prev {
+    color: #f8f5f0 !important;
+}
+
 @media only screen and (max-width: 991px) {
     .sec-2-img {
         padding: 0px;
