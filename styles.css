@@ -1,326 +1,105 @@
+:where([class^="ri-"])::before {
+    content: "\f3c2";
+}
+
 body {
-    background-color:#F8F5F0 !important;
-    color: #122223 !important;
+    font-family: 'Poppins', sans-serif;
 }
 
-.screen-lg {
-    display: block;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Montserrat', sans-serif;
 }
 
-.header-nav {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 30px;
-    padding: 0px 60px;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    z-index: 1;
-    height: 70px;
-    align-items: center;
-    color: white;
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/lander.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-.sec-1 {
-    padding: 10px 10px ;
-    /* margin-top: 70px; */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #8B6D5C;
 }
 
-.nav-panel-left {
-    display: flex;
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 250px;
+    gap: 16px;
 }
 
-.nav-panel-right {
-    display: flex;
+.gallery-grid>div:nth-child(3n+1) {
+    grid-row: span 2;
 }
 
-.nav-elements {
-    padding: 15px;
+.gallery-grid>div:nth-child(4n) {
+    grid-column: span 2;
 }
 
-.nav-elements a {
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
-}
-
-.nav-title {
-    padding: 15px;
-    cursor: pointer;
-    color: white!important;
-}
-
-.header-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.h-100-vh {
-    min-height: 100vh;
-}
-
-.h-95-vh {
-    min-height: 95vh;
-}
-
-.pos-relative {
-    position: relative;
-}
-
-.lander-img {
-    border-radius: 10px;
-    height: 97vh;
-    width: 100%;
-    object-fit: cover;
-    filter: brightness(0.6);
-
-}
-
-.hero__title-parent {
-    position: absolute;
+.lightbox {
+    display: none;
+    position: fixed;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family:  "Cormorant Garamond";
-}
-
-.hero__title-parent span {
-    display: block;
-    color: white;
-}
-
-.hero__title-parent h1 {
-    margin-top: 50px;
-    font-size: 4.5rem !important;
-    color: white !important;
-    font-weight: bold;
-}
-
-.img-rooms {
-    height: 100%;
     width: 100%;
-    border-radius: 15px;
-}
-
-.img-swiper {
     height: 100%;
-    width: 100%;
-    border-radius: 7px;
-}
-
-.room-1 {
-    height: 100%;
-    padding: 30px 30px 100px 30px;
-}
-
-.room-2 {
-    height: 100%;
-    padding: 100px 30px 30px 30px; 
-}
-
-.align-items-center {
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
     justify-content: center;
     align-items: center;
 }
 
-.sec-2-header {
-    color: #122223;
-    font-size: 64px;
-    font-weight: 500;
-    line-height: 76.8px;
-    text-transform: capitalize;
-    font-family:  "Cormorant Garamond";
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
 }
 
-.sec-2-description {
-    color:#122223;
-    font-family:Jost;
-    font-size:17px;
-    line-height:25.5px;
-    margin:40px 0px 0px;
-    text-align:center;
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-.sec-2-img {
-    height: 100%;
-    display: flex;
-    flex-wrap:wrap;
-    padding: 0px 50px;
+.custom-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #8B6D5C;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
 }
 
-.book-now-btn {
-    padding: 10px 20px;
-    border: none;
-    background: #fff;
-    border-radius: 11px;
+.custom-checkbox:checked {
+    background-color: #8B6D5C;
 }
 
-.book-now-btn:hover {
-    background:#122223;
-    color: #fff;;
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
 }
 
-.service-icons {
-    font-size: 70px!important;
+.custom-nav {
+    width:100%!important;
+    right: 0!important;
 }
 
-.services {
-    font-family:Jost;
-}
-
-.services h5{
-    font-weight: 300 !important;
-}
-
-.sec-3 {
-    padding: 0px 80px;
-    margin-bottom: 30px;
-}
-
-.swiper {
-    width: 100%;
-}
-
-.mt-8 {
-    margin-top: 80px!important;
-}
-
-.sec-footer {
-    padding: 20px;
-    background-color: #122223;
-    /* margin: 20px; */
-}
-
-.img-id-fluid {
-    height: 400px;
-    object-fit: cover;
-}
-
-.line {
-    border: 1px solid white;
-    width: 100%;
-    margin: 18px 0px;
-}
-
-.footer {
-    font-family:  "Cormorant Garamond";
-}
-
-.footer-icons {
-    color: white !important;
-    font-size: 30px !important;
-}
-
-.circle {
-    padding: 11px;
-    border: 1px solid white;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.h-55-vh {
-    min-height: 55vh;
-}
-
-.btn-icon {
-    margin: 5px 6px;
-}
-
-
-.swiper-button-next, .swiper-button-prev {
-    color: #f8f5f0 !important;
-}
-
-@media only screen and (max-width: 991px) {
-    .sec-2-img {
-        padding: 0px;
-    }
-
-    .sec-1 {
-        padding: 0;
-        /* margin-top: 70px; */
-    }
-
-    .lander-img {
-        height:100vh;
-        border-radius: unset;
-    }
-
-    .sec-3 {
-        padding: 0px 30px;
-    }
-
-    .sec-2 {
-        padding: 30px;
-    }
-
-    .sec-3 {
-        padding: 0px 30px;
-    }
-
-    .sec-2-header {
-        font-size: 64px;
-        font-weight: 500;
-        line-height: 1.2;
-    }
-
-    .img-id-fluid {
-        height: 600px;
-    }
-} 
-
-@media only screen and (max-width: 767px) {
-    .screen-lg {
-        display: none;
-    }
-    
-    .sec-2-img {
-        padding: 0px;
-    }
-
-    .room-1 {
-        padding: 30px 30px 30px 30px; 
-    }
-
-    .room-2 {
-        padding: 30px 30px 30px 30px; 
-    }
-
-    .sec-1 {
-        padding: 0;
-    }
-
-    .lander-img {
-        height:100vh;
-        border-radius: unset;
-    }
-
-    .sec-2 {
-        padding: 30px;
-    }
-
-    .sec-3 {
-        padding: 0px 30px;
-    }
-
-    .sec-2-header {
-        font-size: 40px;
-        font-weight: 500;
-        line-height: 1.2;
-    }
-
-    .sec-footer {
-        padding: 0px;
-        background-color: #122223;
-        margin: 0px;
-    }
+.custom-nav a {
+    margin:10px 0px!important;
 }
