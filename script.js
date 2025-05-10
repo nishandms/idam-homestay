@@ -127,7 +127,6 @@ $(document).ready(function () {
     nav.classList.toggle('right-4');
     nav.classList.toggle('bg-white');
     nav.classList.toggle('p-4');
-    nav.classList.toggle('rounded');
     nav.classList.toggle('shadow-lg');
   });
 });
