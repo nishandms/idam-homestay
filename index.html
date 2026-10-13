@@ -1,540 +1,918 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IDAM Homestay</title>
-    <script src="./assets/js/tailwind.js"></script>
-    <script>tailwind.config = { theme: { extend: { colors: { primary: '#8B6D5C', secondary: '#A9C0A6' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <title>Idam Homestays — Wayanad, Kerala</title>
+    
+    <meta name="description" content="Idam Homestays is a serene, private homestay near Kuruvadweep in Wayanad, Kerala. Set beside a natural pond with traditional home-cooked Kerala meals and unhurried hospitality.">
+    <meta name="keywords" content="Idam Homestays, Wayanad homestay, Kuruva Island homestay, Kuruvadweep stay, Kerala nature retreat, Kurukkanmoola homestay">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.idamhomestays.com/">
+    <meta property="og:title" content="Idam Homestays — Wayanad, Kerala">
+    <meta property="og:description" content="A quiet pondside homestay near Kuruvadweep, Wayanad. Authentic Kerala food, peaceful surroundings, and slow living.">
+    <meta property="og:image" content="./assets/images/lander.jpg">
+
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="./assets/css/fonts.googleapis.css" rel="stylesheet">
-    <link
-        href="./assets/css/fonts.googleapis.montserrat.css"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="./assets/css/fonts.googleapis.montserrat.css" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="./assets/css/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "LodgingBusiness",
-          "name": "Idam Homestays",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Your Street Address",
-            "addressLocality": "Wayanad",
-            "addressRegion": "Kerala",
-            "postalCode": "Your Postal Code",
-            "addressCountry": "IN"
-          },
-          "telephone": "+91 9037052794",
-          "url": "https://idamhomestays.com",
-          "image": "URL_to_an_image_of_your_property",
-          "description": "A serene escape surrounded by nature’s beauty in Wayanad, Kerala. Enjoy modern amenities and a tranquil environment at Idam Homestays."
+
+    <!-- Tailwind JS & Custom Minimal Design System -->
+    <script src="./assets/js/tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        stone: {
+                            50: '#FAF8F5',
+                            100: '#F3EFEA',
+                            200: '#E8E3DC',
+                            300: '#D5CEC4',
+                            400: '#9E978E',
+                            600: '#5C635E',
+                            800: '#2A302C',
+                            900: '#181B19'
+                        },
+                        clay: {
+                            DEFAULT: '#7D6350',
+                            hover: '#634E3E',
+                            light: '#F5EFEA'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'Montserrat', 'sans-serif']
+                    }
+                }
+            }
         }
-</script>
+    </script>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BedAndBreakfast",
+      "name": "Idam Homestays",
+      "image": "https://www.idamhomestays.com/assets/images/lander.jpg",
+      "telephone": "+919037052794",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Near Kurukkanmoola GLP School, Near Kuruvadweep Island",
+        "addressLocality": "Wayanad",
+        "addressRegion": "Kerala",
+        "postalCode": "670731",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
 </head>
 
-<body class="bg-white">
-    <!-- Header -->
-    <header class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-gray-700 hover:text-primary transition-colors font-medium">Home</a>
-                <a href="#facilities"
-                    class="text-gray-700 hover:text-primary transition-colors font-medium">Facilities</a>
-                <a href="#gallery" class="text-gray-700 hover:text-primary transition-colors font-medium">Gallery</a>
-                <a href="#contact" class="text-gray-700 hover:text-primary transition-colors font-medium">Contact</a>
+<body class="bg-stone-50 text-stone-900 font-sans antialiased">
+
+    <!-- Navigation Header -->
+    <header class="site-nav py-5 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#home" class="group flex flex-col">
+                <span class="brand-title">IDAM</span>
+                <span class="brand-subtitle">Wayanad • Kerala</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm">
+                <a href="#about" class="nav-link">The Property</a>
+                <a href="#spaces" class="nav-link">The Home</a>
+                <a href="#amenities" class="nav-link">Amenities</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#around" class="nav-link">Around Us</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </nav>
-            <div class="md:hidden w-10 h-10 flex items-center justify-center">
-                <i class="ri-menu-line ri-lg text-gray-700"></i>
+
+            <!-- Action & Mobile Menu -->
+            <div class="flex items-center gap-4">
+                <a href="#booking-strip" class="hidden sm:inline-flex btn-outline-light !py-2 !px-5 !text-xs uppercase tracking-wider font-semibold site-nav-btn">
+                    Check Dates
+                </a>
+                <button id="mobileMenuBtn" aria-label="Open Navigation Menu" class="md:hidden text-white hover:text-stone-300 transition-colors text-2xl p-1 site-nav-toggle">
+                    <i class="ri-menu-line"></i>
+                </button>
             </div>
-            <button
-                class="bg-primary text-white px-5 py-2 whatsapp-btn !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap font-medium">Book
-                Now</button>
+
         </div>
     </header>
-    <!-- Hero Section -->
-    <section id="home" class="hero-section min-h-screen flex items-center pt-16">
-        <div class="container mx-auto px-4 w-full">
-            <div class="max-w-2xl text-white py-24">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6">IDAM Homestay
-                </h1>
-                <p class="text-xl mb-8">Experience the perfect blend of comfort and nature in our premium mountain
-                    retreat. Unwind, reconnect, and create lasting memories.</p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <button
-                        class="bg-primary text-white px-8 py-3 whatsapp-btn !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap font-medium">Book
-                        Your Stay</button>
-                    <!-- <button id="tourButton"
-                        class="bg-white text-primary px-8 py-3 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap font-medium">Take
-                        a Tour</button> -->
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileDrawer" class="drawer">
+        <div class="drawer-panel">
+            <div class="flex items-center justify-between pb-6 border-b border-stone-200">
+                <div>
+                    <span class="font-serif text-xl tracking-wider font-semibold text-stone-900 block">IDAM</span>
+                    <span class="text-[11px] text-stone-600 uppercase tracking-widest">Wayanad, Kerala</span>
                 </div>
+                <button id="closeDrawerBtn" aria-label="Close menu" class="text-stone-600 hover:text-stone-900 text-2xl p-1">
+                    <i class="ri-close-line"></i>
+                </button>
+            </div>
+
+            <nav class="flex flex-col py-8 space-y-5 text-base font-medium text-stone-800 flex-1">
+                <a href="#about" class="drawer-link hover:text-clay transition-colors">The Property</a>
+                <a href="#spaces" class="drawer-link hover:text-clay transition-colors">Inside the Home</a>
+                <a href="#amenities" class="drawer-link hover:text-clay transition-colors">Amenities</a>
+                <a href="#gallery" class="drawer-link hover:text-clay transition-colors">Gallery</a>
+                <a href="#around" class="drawer-link hover:text-clay transition-colors">Around Wayanad</a>
+                <a href="#faq" class="drawer-link hover:text-clay transition-colors">FAQ</a>
+                <a href="#contact" class="drawer-link hover:text-clay transition-colors">Location & Contact</a>
+            </nav>
+
+            <div class="pt-6 border-t border-stone-200 space-y-3">
+                <a href="https://wa.me/919037052794" target="_blank" rel="noopener noreferrer" class="btn-dark w-full justify-center !py-3">
+                    <i class="ri-whatsapp-line text-lg"></i>
+                    <span>Inquire on WhatsApp</span>
+                </a>
+                <a href="tel:+919037052794" class="btn-outline-dark w-full justify-center !py-3">
+                    <i class="ri-phone-line"></i>
+                    <span>Call +91 9037052794</span>
+                </a>
             </div>
         </div>
-    </section>
-    <!-- About Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <img src="./assets/images/img-2.jpg"
-                        alt="Homestay Interior" class="rounded-lg shadow-lg w-full h-auto object-cover">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Welcome to IDAM Home Stay
-                        with a Unique Experience</h2>
-                    <p class="text-gray-600 mb-6">A serene escape surrounded by nature’s beauty. Nestled near a charming pond, our homestay
-                        offers a peaceful retreat from everyday life. The soothing sounds of water and wildlife create an enchanting
-                        atmosphere, perfect for relaxation. Our cozy accommodations feature rustic decor and modern comforts, providing a
-                        welcoming space for guests. Experience the charm and serenity of Idam—your perfect getaway awaits!</p>
-                    <div class="flex items-center gap-6">
-                        <div class="flex flex-col items-center">
-                            <span class="text-primary text-3xl font-bold">2+</span>
-                            <span class="text-gray-500 text-sm">Years of Experience</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <span class="text-primary text-3xl font-bold">100+</span>
-                            <span class="text-gray-500 text-sm">Happy Guests</span>
-                        </div>
-                        <div class="flex flex-col items-center">
-                            <span class="text-primary text-3xl font-bold">4.5</span>
-                            <span class="text-gray-500 text-sm">Rating</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Facilities Section -->
-    <section id="facilities" class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-gray-800">Our Facilities</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Discover the amenities that make our homestay a perfect blend
-                    of comfort and adventure. We've thought of everything to make your stay memorable.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Facility 1 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <i class="ri-wifi-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Wifi & Internet</h3>
-                    <p class="text-gray-600">Stay connected with high-speed internet available throughout the property,
-                        perfect for remote work or sharing your adventures.</p>
-                </div>
-                <!-- Facility 2 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <i class="ri-tv-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Smart TV</h3>
-                    <p class="text-gray-600">Enjoy your favorite shows and movies on our 4K smart TVs with access to
-                        popular streaming services in every room.</p>
-                </div>
-                <!-- Facility 3 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <i class="ri-car-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Transportation</h3>
-                    <p class="text-gray-600">Complimentary shuttle service to nearby attractions and hiking trails. Car
-                        rental assistance available upon request.</p>
-                </div>
-                <!-- Facility 4 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <i class="ri-breakfast-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Breakfast in Bed</h3>
-                    <p class="text-gray-600">Start your day with a delicious homemade breakfast delivered right to your
-                        room at your preferred time.</p>
-                </div>
-                <!-- Facility 5 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <i class="ri-map-pin-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Travel Guide</h3>
-                    <p class="text-gray-600">Personalized travel guides and recommendations for local attractions,
-                        hidden gems, and authentic experiences.</p>
-                </div>
-                <!-- Facility 6 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <i class="ri-fire-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Camp Fire</h3>
-                    <p class="text-gray-600">Enjoy evenings around our designated campfire area, perfect for
-                        storytelling, stargazing, and making s'mores.</p>
-                </div>
-                <!-- Facility 7 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <i class="ri-restaurant-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Grill</h3>
-                    <p class="text-gray-600">Modern BBQ grill station with all necessary equipment for cooking outdoor
-                        meals using locally sourced ingredients.</p>
-                </div>
-                <!-- Facility 8 -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
-                        <i class="ri-service-line ri-xl text-primary"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3 text-gray-800">House Keeper Service</h3>
-                    <p class="text-gray-600">Daily housekeeping service to ensure your space remains clean and
-                        comfortable throughout your stay.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Gallery Section -->
-    <section id="gallery" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-gray-800">Gallery</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Take a visual tour of our homestay and get a glimpse of the
-                    experiences that await you.</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="overflow-hidden rounded-lg cursor-pointer">
-                    <img src="./assets/images/img-1.jpg"
-                        alt="Bedroom"
-                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg cursor-pointer">
-                    <img src="./assets/images/img-2.jpg"
-                        alt="Dining Area"
-                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg cursor-pointer">
-                    <img src="./assets/images/img-8.jpg"
-                        alt="Bathroom"
-                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg cursor-pointer">
-                    <img src="/assets/images/img-7.jpg"
-                        alt="Living Room"
-                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg cursor-pointer">
-                    <img src="./assets/images/img-5.jpg"
-                        alt="Kitchen"
-                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg cursor-pointer">
-                    <img src="./assets/images/img-6.jpg"
-                        alt="Outdoor Patio"
-                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div>
-                <!-- <div class="overflow-hidden rounded-lg cursor-pointer">
-                    <img src="/assets/images/slider7.jpg"
-                        alt="Sunrise View"
-                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div> -->
-                <!-- <div class="overflow-hidden rounded-lg cursor-pointer">
-                    <img src="/assets/images/slider8.jpg"
-                        alt="Campfire"
-                        class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-300">
-                </div> -->
-            </div>
-        </div>
-    </section>
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <span class="close cursor-pointer absolute top-4 right-6 text-white text-4xl">&times;</span>
-        <img src="" id="lightbox-img">
     </div>
 
-    <!-- Video Tour Modal -->
-    <div id="tourModal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50">
-        <div class="bg-white rounded-lg w-full max-w-4xl mx-4 relative">
-            <button id="closeTourModal"
-                class="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors">
-                <i class="ri-close-line ri-2x"></i>
-            </button>
-            <div class="p-6">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Mountain Haven Virtual Tour</h3>
-                <div class="relative pt-[56.25%]">
-                    <!-- <video id="tourVideo" class="absolute inset-0 w-full h-full rounded" controls>
-                        <source src="" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video> -->
+    <!-- Minimal Hero -->
+    <section id="home" class="hero-minimal pt-36 pb-24 sm:pt-44 sm:pb-32 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="max-w-2xl">
+                
+                <span class="text-xs uppercase tracking-widest text-stone-200 font-medium block mb-4">
+                    Kurukkanmoola • Near Kuruvadweep
+                </span>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-normal text-white leading-[1.12] mb-6">
+                    A quiet sanctuary by the water.
+                </h1>
+
+                <p class="text-base sm:text-lg text-stone-200/90 leading-relaxed font-light mb-10 max-w-xl">
+                    Idam is an unpretentious 3-bedroom retreat nestled beside a natural pond in Wayanad. Built for slow mornings, home-cooked Malabar meals, and starlit campfires.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#booking-strip" class="btn-dark !bg-white !text-stone-900 hover:!bg-stone-100 !border-white">
+                        <span>Check Availability</span>
+                        <i class="ri-arrow-right-line text-xs"></i>
+                    </a>
+                    <a href="#spaces" class="btn-outline-light">
+                        <span>Explore the Home</span>
+                    </a>
                 </div>
-                <div class="mt-6 flex justify-between items-center">
-                    <div class="flex space-x-4">
-                        <button id="prevSection"
-                            class="flex items-center px-4 py-2 text-gray-600 hover:text-primary transition-colors">
-                            <i class="ri-arrow-left-line ri-lg mr-2"></i>
-                            Previous
-                        </button>
-                        <button id="nextSection"
-                            class="flex items-center px-4 py-2 text-gray-600 hover:text-primary transition-colors">
-                            Next
-                            <i class="ri-arrow-right-line ri-lg ml-2"></i>
-                        </button>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Architectural Booking Strip -->
+    <div id="booking-strip" class="max-w-5xl mx-auto px-6 sm:px-10 -mt-10 relative z-20">
+        <div class="booking-strip">
+            <form id="bookingForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-center">
+                
+                <div class="strip-item sm:border-r sm:border-stone-200 sm:pr-4">
+                    <label for="checkinDate">Check-in</label>
+                    <input type="date" id="checkinDate" class="strip-input" required>
+                </div>
+
+                <div class="strip-item sm:border-r sm:border-stone-200 sm:pr-4">
+                    <label for="checkoutDate">Check-out</label>
+                    <input type="date" id="checkoutDate" class="strip-input" required>
+                </div>
+
+                <div class="strip-item lg:border-r lg:border-stone-200 lg:pr-4">
+                    <label for="guestCount">Guests</label>
+                    <select id="guestCount" class="strip-input">
+                        <option value="2 Guests">2 Guests (Couple)</option>
+                        <option value="1 Guest">1 Guest</option>
+                        <option value="3 to 4 Guests">3 - 4 Guests (Family)</option>
+                        <option value="5 to 8 Guests">5 - 8 Guests (Group)</option>
+                        <option value="9 to 12 Guests">9 - 12 Guests (Full House)</option>
+                    </select>
+                </div>
+
+                <div class="strip-item">
+                    <button type="button" id="checkAvailabilityBtn" class="btn-dark w-full !py-3.5 text-center justify-center">
+                        <span>Inquire Entire Home</span>
+                        <i class="ri-arrow-right-line text-sm"></i>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- The Property / Editorial Narrative -->
+    <section id="about" class="py-24 sm:py-32 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                
+                <!-- Left: Full Aspect Image -->
+                <div class="lg:col-span-7">
+                    <div class="img-wrap rounded-lg shadow-sm border border-stone-200 h-[460px] sm:h-[540px]">
+                        <img src="./assets/images/img-2.jpg" alt="Dining area and wooden architecture at Idam Homestay">
                     </div>
-                    <div id="sectionIndicator" class="text-gray-600">1/5</div>
+                    <p class="text-xs text-stone-500 mt-3 font-medium">Handcrafted timber dining table and traditional Kerala craftsmanship.</p>
                 </div>
+
+                <!-- Right: Editorial Copy -->
+                <div class="lg:col-span-5">
+                    <span class="text-xs uppercase tracking-widest text-clay font-semibold block mb-3">The Property</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif text-stone-900 leading-tight mb-6">
+                        An unhurried stay in the Wayanad wilderness.
+                    </h2>
+                    
+                    <p class="text-stone-600 text-base leading-relaxed mb-6 font-light">
+                        Idam was founded as a quiet refuge for travelers who appreciate nature in its unembellished state. Situated near the river delta of Kuruvadweep, the homestay overlooks a tranquil pond framed by indigenous trees and spice foliage.
+                    </p>
+                    
+                    <p class="text-stone-600 text-sm leading-relaxed mb-10 font-light">
+                        There are no crowded corridors or impersonal check-in counters here. Guests wake to the rustle of bamboo, share homemade puttu or appams around the timber dining table, and spend evenings by a gentle campfire under dark, clear skies.
+                    </p>
+
+                    <!-- Minimalist Three Pillars -->
+                    <div class="space-y-6 pt-6 border-t border-stone-200">
+                        <div class="flex items-start gap-4">
+                            <span class="text-xs font-mono text-clay mt-1">01</span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-stone-900">Pondside Living</h4>
+                                <p class="text-xs text-stone-600 mt-1">Natural water breezes, water lilies, and shady sit-outs for reading and unwinding.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-xs font-mono text-clay mt-1">02</span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-stone-900">Malabar Home Cooking</h4>
+                                <p class="text-xs text-stone-600 mt-1">Simple, farm-fresh Kerala dishes cooked with estate-grown spices upon request.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <span class="text-xs font-mono text-clay mt-1">03</span>
+                            <div>
+                                <h4 class="text-sm font-semibold text-stone-900">Minutes from Kuruvadweep</h4>
+                                <p class="text-xs text-stone-600 mt-1">Direct access to bamboo rafting, freshwater trails, and evergreen island flora.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Inside the Home / The Spaces -->
+    <section id="spaces" class="py-24 bg-stone-100/60 border-y border-stone-200 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-clay font-semibold block mb-2">Private Sanctuary</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif text-stone-900">The entire home, exclusively yours.</h2>
+                </div>
+                <p class="text-stone-600 text-sm max-w-md font-light">
+                    When you stay at Idam, the complete property is yours. No shared corridors, no other guests—just uninterrupted privacy for your family or friends.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Space 1: The Bedrooms -->
+                <div class="editorial-card flex flex-col justify-between">
+                    <div>
+                        <div class="img-wrap h-64">
+                            <img src="./assets/images/img-1.jpg" alt="Comfortable bedrooms with garden views">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="font-serif text-2xl text-stone-900">The Bedrooms</h3>
+                                <span class="text-xs text-stone-500 font-mono">Rest & Privacy</span>
+                            </div>
+                            <p class="text-stone-600 text-sm leading-relaxed mb-6 font-light">
+                                Three calm, well-ventilated bedrooms with handcrafted wood finishes, comfortable mattresses, wide garden views, and spotless en-suite bathrooms with 24/7 hot water.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-xs text-stone-600 border-t border-stone-100 pt-4">
+                                <span>3 Bedrooms</span> •
+                                <span>En-suite Baths</span> •
+                                <span>Garden Views</span> •
+                                <span>Quiet Ambiance</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="#booking-strip" class="hover-arrow">
+                            <span>Check Availability</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Space 2: Living & Dining -->
+                <div class="editorial-card flex flex-col justify-between">
+                    <div>
+                        <div class="img-wrap h-64">
+                            <img src="./assets/images/img-7.jpg" alt="Living room and family lounge">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="font-serif text-2xl text-stone-900">Living & Dining Hall</h3>
+                                <span class="text-xs text-stone-500 font-mono">Gatherings</span>
+                            </div>
+                            <p class="text-stone-600 text-sm leading-relaxed mb-6 font-light">
+                                An expansive timber-styled living area for family conversations, 4K Smart TV entertainment, and a handcrafted Kerala teak dining table where home-cooked meals are shared.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-xs text-stone-600 border-t border-stone-100 pt-4">
+                                <span>Teak Dining Table</span> •
+                                <span>Smart TV</span> •
+                                <span>Kitchen Access</span> •
+                                <span>Lounge Seating</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="#booking-strip" class="hover-arrow">
+                            <span>Check Availability</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Space 3: Verandah & Grounds -->
+                <div class="editorial-card flex flex-col justify-between">
+                    <div>
+                        <div class="img-wrap h-64">
+                            <img src="./assets/images/img-6.jpg" alt="Pondside verandah and open grounds">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-baseline mb-2">
+                                <h3 class="font-serif text-2xl text-stone-900">Verandah & Pond Grounds</h3>
+                                <span class="text-xs text-stone-500 font-mono">Outdoors</span>
+                            </div>
+                            <p class="text-stone-600 text-sm leading-relaxed mb-6 font-light">
+                                Breezy open sit-outs overlooking the natural pond, sprawling green lawns for strolls, and an evening wood-fired campfire pit for conversations under the starry sky.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-xs text-stone-600 border-t border-stone-100 pt-4">
+                                <span>Natural Pond</span> •
+                                <span>Private Campfire</span> •
+                                <span>BBQ Station</span> •
+                                <span>Open Lawn</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-2">
+                        <a href="#booking-strip" class="hover-arrow">
+                            <span>Check Availability</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Single Private Home Exclusivity Banner -->
+            <div class="mt-12 p-8 bg-white border border-stone-200 rounded-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                    <h4 class="font-serif text-xl text-stone-900 mb-1">A single private home for your group</h4>
+                    <p class="text-xs sm:text-sm text-stone-600 font-light">Whether you are a couple seeking peace or a family reunion of up to 12 guests, the entire property remains completely private to you.</p>
+                </div>
+                <a href="https://wa.me/919037052794?text=Hello%20Idam%20Homestays,%20I%20would%20like%20to%20inquire%20about%20booking%20the%20entire%20home." target="_blank" rel="noopener noreferrer" class="btn-dark whitespace-nowrap !py-3 !px-6 text-xs uppercase tracking-wider font-semibold">
+                    <i class="ri-whatsapp-line text-sm"></i>
+                    <span>Inquire via WhatsApp</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Refined Amenities Grid -->
+    <section id="amenities" class="py-24 sm:py-32 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="max-w-2xl mb-16">
+                <span class="text-xs uppercase tracking-widest text-clay font-semibold block mb-2">Comfort & Inclusions</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-stone-900 mb-4">What to expect at Idam</h2>
+                <p class="text-stone-600 text-sm font-light leading-relaxed">
+                    Thoughtful essentials designed for a restful stay, without unnecessary gimmicks.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+                
+                <div class="border-t border-stone-200 pt-6">
+                    <i class="ri-wifi-line text-stone-700 text-xl block mb-3"></i>
+                    <h4 class="text-base font-medium text-stone-900 mb-2">High-Speed Wi-Fi</h4>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Optical internet coverage across suites and common areas for remote work or connectivity.
+                    </p>
+                </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <i class="ri-cup-line text-stone-700 text-xl block mb-3"></i>
+                    <h4 class="text-base font-medium text-stone-900 mb-2">Kerala Breakfast</h4>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Fresh home-cooked breakfast served warm every morning with estate tea or brewed coffee.
+                    </p>
+                </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <i class="ri-fire-line text-stone-700 text-xl block mb-3"></i>
+                    <h4 class="text-base font-medium text-stone-900 mb-2">Campfire Evenings</h4>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Dedicated wood-fired open campfire area for quiet gatherings under the stars.
+                    </p>
+                </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <i class="ri-restaurant-line text-stone-700 text-xl block mb-3"></i>
+                    <h4 class="text-base font-medium text-stone-900 mb-2">Barbecue Setup</h4>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Outdoor barbecue grill station available for evening barbecues with prior notice.
+                    </p>
+                </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <i class="ri-tv-line text-stone-700 text-xl block mb-3"></i>
+                    <h4 class="text-base font-medium text-stone-900 mb-2">Smart TV</h4>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        4K display in the family lounge with access to popular streaming platforms.
+                    </p>
+                </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <i class="ri-compass-line text-stone-700 text-xl block mb-3"></i>
+                    <h4 class="text-base font-medium text-stone-900 mb-2">Local Sightseeing Guidance</h4>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Help with safari timings, bamboo rafting entry at Kuruva, and hidden trails.
+                    </p>
+                </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <i class="ri-sparkling-line text-stone-700 text-xl block mb-3"></i>
+                    <h4 class="text-base font-medium text-stone-900 mb-2">Daily Housekeeping</h4>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Attentive daily cleaning, fresh towels, and pristine bathroom upkeep.
+                    </p>
+                </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <i class="ri-car-line text-stone-700 text-xl block mb-3"></i>
+                    <h4 class="text-base font-medium text-stone-900 mb-2">Private Parking</h4>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Spacious, secure private parking space on-site with 24/7 host presence.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-stone-100/60 border-y border-stone-200 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-clay font-semibold block mb-2">Visual Tour</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif text-stone-900">Moments at Idam</h2>
+                </div>
+                
+                <!-- Minimal Filter Pills -->
+                <div class="flex flex-wrap gap-2">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="bedrooms">Bedrooms</button>
+                    <button class="filter-btn" data-filter="living">Living & Dining</button>
+                    <button class="filter-btn" data-filter="outdoors">Outdoors & Grounds</button>
+                </div>
+            </div>
+
+            <!-- Gallery Grid with Clean Proportions -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="galleryGrid">
+                
+                <div class="gallery-card img-wrap" data-category="bedrooms" data-title="Master Bedroom" data-category-label="Bedrooms">
+                    <img src="./assets/images/img-1.jpg" alt="Master Bedroom">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Bedrooms</span>
+                        <h4 class="font-serif text-lg text-white">Master Bedroom</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="living" data-title="Handcrafted Dining Hall" data-category-label="Living & Dining">
+                    <img src="./assets/images/img-2.jpg" alt="Teak Dining Space">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Living & Dining</span>
+                        <h4 class="font-serif text-lg text-white">Timber Dining Space</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="bedrooms" data-title="Garden Guest Bedroom" data-category-label="Bedrooms">
+                    <img src="./assets/images/img-3.jpg" alt="Garden Guest Bedroom">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Bedrooms</span>
+                        <h4 class="font-serif text-lg text-white">Garden Guest Bedroom</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="outdoors" data-title="Verandah Corridor" data-category-label="Outdoors">
+                    <img src="./assets/images/img-4.jpg" alt="Traditional Verandah">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Architecture</span>
+                        <h4 class="font-serif text-lg text-white">Verandah Walkway</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="living" data-title="Homestay Kitchen" data-category-label="Living & Dining">
+                    <img src="./assets/images/img-5.jpg" alt="Homestay Kitchen">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Kitchen</span>
+                        <h4 class="font-serif text-lg text-white">Homestay Kitchen</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="outdoors" data-title="Pondside Patio" data-category-label="Outdoors">
+                    <img src="./assets/images/img-6.jpg" alt="Pondside Patio">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Outdoors</span>
+                        <h4 class="font-serif text-lg text-white">Pondside Patio</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="living" data-title="Family Living Lounge" data-category-label="Living & Dining">
+                    <img src="./assets/images/img-7.jpg" alt="Family Living Lounge">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Living</span>
+                        <h4 class="font-serif text-lg text-white">Family Living Lounge</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="bedrooms" data-title="En-suite Modern Bathroom" data-category-label="Bedrooms">
+                    <img src="./assets/images/img-8.jpg" alt="Ensuite Bathroom">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Bathroom</span>
+                        <h4 class="font-serif text-lg text-white">En-suite Bathroom</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="outdoors" data-title="Estate Grounds" data-category-label="Outdoors">
+                    <img src="./assets/images/img-9.jpg" alt="Estate Grounds">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Outdoors</span>
+                        <h4 class="font-serif text-lg text-white">Estate Grounds</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="outdoors" data-title="Twilight Ambiance" data-category-label="Outdoors">
+                    <img src="./assets/images/img-10.jpg" alt="Twilight Ambiance">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Ambiance</span>
+                        <h4 class="font-serif text-lg text-white">Twilight at the Homestay</h4>
+                    </div>
+                </div>
+
+                <div class="gallery-card img-wrap" data-category="outdoors" data-title="Exterior Architecture" data-category-label="Outdoors">
+                    <img src="./assets/images/img-11.jpg" alt="Exterior Architecture">
+                    <div class="card-caption">
+                        <span class="text-xs uppercase tracking-wider text-stone-300">Architecture</span>
+                        <h4 class="font-serif text-lg text-white">Homestay Exterior</h4>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Minimal Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox">
+        <div class="lightbox-img-wrapper">
+            <button id="lightboxClose" aria-label="Close Lightbox" class="absolute -top-10 right-0 text-white/80 hover:text-white text-2xl transition-colors">
+                <i class="ri-close-line"></i>
+            </button>
+            <button id="lightboxPrev" aria-label="Previous Image" class="lightbox-nav-btn lightbox-nav-prev">
+                <i class="ri-arrow-left-s-line text-xl"></i>
+            </button>
+            <img id="lightboxImg" src="" alt="Idam Homestay Photo" class="select-none">
+            <button id="lightboxNext" aria-label="Next Image" class="lightbox-nav-btn lightbox-nav-next">
+                <i class="ri-arrow-right-s-line text-xl"></i>
+            </button>
+            <div class="mt-4 text-center text-white">
+                <h4 id="lightboxTitle" class="font-serif text-base text-white/90"></h4>
+                <span id="lightboxCounter" class="text-xs text-white/50 block mt-1"></span>
             </div>
         </div>
     </div>
-    <!-- Testimonials Section -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-gray-800">What Our Guests Say</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Hear from those who have experienced the magic of our
-                    mountain haven.</p>
+
+    <!-- Around Wayanad (Curated Field Guide) -->
+    <section id="around" class="py-24 sm:py-32 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="max-w-2xl mb-16">
+                <span class="text-xs uppercase tracking-widest text-clay font-semibold block mb-2">The Destination</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-stone-900 mb-4">Around Kuruvadweep & Wayanad</h2>
+                <p class="text-stone-600 text-sm font-light leading-relaxed">
+                    A few of our favorite nearby trails, wildlife sanctuaries, and waters to explore during your stay.
+                </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 flex">
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                        </div>
-                        <span class="ml-2 text-gray-600">5.0</span>
-                    </div>
-                    <p class="text-gray-600 mb-6">"This homestay exceeded all our expectations. The attention to detail,
-                        from the locally sourced breakfast to the curated hiking recommendations, made our anniversary
-                        trip truly special. We'll definitely be back!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                            <i class="ri-user-line ri-lg text-gray-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Ajmal</h4>
-                            <p class="text-gray-500 text-sm">Kollam, Kerala</p>
-                        </div>
-                    </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <div class="border-t border-stone-200 pt-6">
+                    <span class="text-xs font-mono text-clay block mb-2">5 mins drive</span>
+                    <h3 class="font-serif text-xl text-stone-900 mb-2">Kuruvadweep Island</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Protected river delta along the Kabini. Walk through evergreen bamboo trails and experience traditional raft crossings.
+                    </p>
                 </div>
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 flex">
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                        </div>
-                        <span class="ml-2 text-gray-600">5.0</span>
-                    </div>
-                    <p class="text-gray-600 mb-6">"As a photographer, I was blown away by the natural beauty surrounding
-                        this homestay. The hosts were incredibly knowledgeable about the best spots for sunrise shots,
-                        and the evening campfires were the perfect end to each day."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                            <i class="ri-user-line ri-lg text-gray-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Sourav Krishna</h4>
-                            <p class="text-gray-500 text-sm">Perumbavoor, Kerala</p>
-                        </div>
-                    </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <span class="text-xs font-mono text-clay block mb-2">20 mins drive</span>
+                    <h3 class="font-serif text-xl text-stone-900 mb-2">Tholpetty Wildlife</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Morning and dusk open jeep safaris with frequent sightings of wild elephants, deer herds, and peacocks.
+                    </p>
                 </div>
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="text-yellow-400 flex">
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-fill ri-sm"></i>
-                            <i class="ri-star-half-fill ri-sm"></i>
-                        </div>
-                        <span class="ml-2 text-gray-600">4.5</span>
-                    </div>
-                    <p class="text-gray-600 mb-6">"We brought our family of four for a week-long stay, and it was
-                        perfect for both adults and children. The kids loved the outdoor activities while we appreciated
-                        the comfortable accommodations and thoughtful service."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center mr-4">
-                            <i class="ri-user-line ri-lg text-gray-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-gray-800">Vishnu K R</h4>
-                            <p class="text-gray-500 text-sm">Malappuram, Kerala</p>
-                        </div>
-                    </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <span class="text-xs font-mono text-clay block mb-2">45 mins drive</span>
+                    <h3 class="font-serif text-xl text-stone-900 mb-2">Banasura Sagar Dam</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        Picturesque earthen dam with speed boating set against the misty backdrop of the Banasura hills.
+                    </p>
                 </div>
+
+                <div class="border-t border-stone-200 pt-6">
+                    <span class="text-xs font-mono text-clay block mb-2">Day trip</span>
+                    <h3 class="font-serif text-xl text-stone-900 mb-2">Chembra Peak</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed font-light">
+                        A highland trek passing through tea estates to reach the famous heart-shaped perennial mountain lake.
+                    </p>
+                </div>
+
             </div>
+
         </div>
     </section>
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4 text-gray-800">Contact Us</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Have questions or ready to book your stay? Reach out to us
-                    and we'll get back to you as soon as possible.</p>
+
+    <!-- Guest Notes -->
+    <section class="py-24 bg-stone-100/60 border-y border-stone-200 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="max-w-2xl mb-16">
+                <span class="text-xs uppercase tracking-widest text-clay font-semibold block mb-2">Guest Notes</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-stone-900">Words from travelers</h2>
             </div>
-            <div class="flex flex-col lg:flex-row gap-12">
-                <!-- Contact Form -->
-                <div class="lg:w-1/2 bg-white p-8 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-6 text-gray-800">Send Us a Message</h3>
-                    <form>
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 mb-2">Full Name</label>
-                            <input type="text" id="name"
-                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
-                                placeholder="Your name">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-8 rounded-lg border border-stone-200 flex flex-col justify-between">
+                    <p class="text-stone-700 text-sm leading-relaxed font-light mb-6">
+                        "The setting by the pond made our short trip thoroughly peaceful. Fresh breakfast in the morning and unhurried campfire conversations at night. The host looked after every small need."
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 text-xs">
+                        <span class="font-semibold text-stone-900 block">Ajmal</span>
+                        <span class="text-stone-500">Kollam, Kerala</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg border border-stone-200 flex flex-col justify-between">
+                    <p class="text-stone-700 text-sm leading-relaxed font-light mb-6">
+                        "As a photographer, the natural light filtering through the trees and the morning mist over the water were incredible. Very clean rooms and quiet hospitality."
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 text-xs">
+                        <span class="font-semibold text-stone-900 block">Sourav Krishna</span>
+                        <span class="text-stone-500">Perumbavoor, Kerala</span>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg border border-stone-200 flex flex-col justify-between">
+                    <p class="text-stone-700 text-sm leading-relaxed font-light mb-6">
+                        "We stayed with our extended family and booked the entire place. The kids enjoyed the open grounds and the food tasted like genuine home cooking."
+                    </p>
+                    <div class="pt-4 border-t border-stone-100 text-xs">
+                        <span class="font-semibold text-stone-900 block">Vishnu K R</span>
+                        <span class="text-stone-500">Malappuram, Kerala</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Minimalist FAQ Accordion -->
+    <section id="faq" class="py-24 sm:py-32 px-6 sm:px-10">
+        <div class="max-w-3xl mx-auto">
+            
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-clay font-semibold block mb-2">Good to Know</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-stone-900 mb-4">Frequently Asked Questions</h2>
+            </div>
+
+            <div>
+                
+                <div class="accordion-item open">
+                    <button class="accordion-header">
+                        <h3>What are the check-in and check-out timings?</h3>
+                        <span class="accordion-icon"><i class="ri-add-line"></i></span>
+                    </button>
+                    <div class="accordion-body">
+                        Check-in is from 2:00 PM onwards, and check-out is by 11:00 AM. Early check-in or late departure can be arranged depending on availability.
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h3>Are meals provided at the homestay?</h3>
+                        <span class="accordion-icon"><i class="ri-add-line"></i></span>
+                    </button>
+                    <div class="accordion-body">
+                        Yes. A wholesome, home-cooked Kerala breakfast is included with your stay. Lunch, traditional dinner, and evening barbecue can be prepared fresh upon advance request.
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h3>How close is Idam to Kuruvadweep (Kuruva Island)?</h3>
+                        <span class="accordion-icon"><i class="ri-add-line"></i></span>
+                    </button>
+                    <div class="accordion-body">
+                        The homestay is located in Kurukkanmoola, just about 5 minutes from Kuruvadweep. This allows guests to visit the island early in the morning before tourist crowds arrive.
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h3>Do we share the property with other guests?</h3>
+                        <span class="accordion-icon"><i class="ri-add-line"></i></span>
+                    </button>
+                    <div class="accordion-body">
+                        No. Idam is booked exclusively as an entire private home. Whether you are 2 guests or a family group of up to 12, you will have complete, private access to the entire house, pond, and grounds with no other travelers on the property.
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h3>Is the property suitable for remote work?</h3>
+                        <span class="accordion-icon"><i class="ri-add-line"></i></span>
+                    </button>
+                    <div class="accordion-body">
+                        Yes. We have high-speed optical Wi-Fi coverage with power backup across the homestay, providing a quiet and reliable workation environment.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Direct Inquiries -->
+    <section id="contact" class="py-24 bg-stone-100/60 border-t border-stone-200 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Inquiry Form -->
+                <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-lg border border-stone-200">
+                    <h3 class="font-serif text-2xl text-stone-900 mb-2">Send an inquiry</h3>
+                    <p class="text-stone-600 text-sm font-light mb-8">
+                        Share your travel dates and group size. We reply directly on WhatsApp with current availability and pricing.
+                    </p>
+
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="formName" class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-1">Your Name</label>
+                                <input type="text" id="formName" class="input-minimal" placeholder="Full name" required>
+                            </div>
+                            <div>
+                                <label for="formPhone" class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-1">WhatsApp Number</label>
+                                <input type="tel" id="formPhone" class="input-minimal" placeholder="+91 98765 43210" required>
+                            </div>
                         </div>
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-                            <input type="email" id="email"
-                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
-                                placeholder="Your email">
+
+                        <div>
+                            <label for="formEmail" class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-1">Email (Optional)</label>
+                            <input type="email" id="formEmail" class="input-minimal" placeholder="email@example.com">
                         </div>
-                        <div class="mb-6">
-                            <label for="phone" class="block text-gray-700 mb-2">Phone Number</label>
-                            <input type="tel" id="phone"
-                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
-                                placeholder="Your phone number">
+
+                        <div>
+                            <label for="formMessage" class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-1">Dates & Requirements</label>
+                            <textarea id="formMessage" rows="3" class="input-minimal resize-none" placeholder="Dates of travel, number of guests, or special requests..." required></textarea>
                         </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 mb-2">Message</label>
-                            <textarea id="message" rows="4"
-                                class="w-full px-4 py-3 border border-gray-300 rounded focus:border-primary"
-                                placeholder="Your message"></textarea>
+
+                        <div class="pt-2">
+                            <button type="submit" class="btn-dark w-full !py-3.5 justify-center">
+                                <span>Send on WhatsApp</span>
+                                <i class="ri-whatsapp-line text-base"></i>
+                            </button>
                         </div>
-                        <button type="submit"
-                            class="bg-primary text-white px-8 py-3 !rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap font-medium w-full">Send
-                            Message</button>
                     </form>
                 </div>
-                <!-- Contact Information -->
-                <div class="lg:w-1/2 bg-white p-8 rounded-lg shadow-md">
+
+                <!-- Host Coordinates -->
+                <div class="lg:col-span-5 space-y-8">
                     <div>
-                        <h3 class="text-2xl font-semibold mb-6 text-gray-800">Contact Information</h3>
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="ri-map-pin-line ri-lg text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Address</h4>
-                                    <p class="text-gray-600">Near Kurukkanmoola GLP school,
-                                        Near Kuruvadeep island, Wayanad
-                                        Kerala, India
-                                        States</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="ri-phone-line ri-lg text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Phone</h4>
-                                    <p class="text-gray-600">+91 8073314794</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="ri-mail-line ri-lg text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Email</h4>
-                                    <p class="text-gray-600">info@idamhomestays.com</p>
-                                    <p class="text-gray-600">bookings@idamhomestays.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="ri-time-line ri-lg text-primary"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 mb-1">Hours</h4>
-                                    <p class="text-gray-600">Check-in: 3:00 PM - 8:00 PM</p>
-                                    <p class="text-gray-600">Check-out: 11:00 AM</p>
-                                    <p class="text-gray-600">Reception: 7:00 AM - 10:00 PM</p>
-                                </div>
-                            </div>
+                        <span class="text-xs uppercase tracking-widest text-clay font-semibold block mb-2">Host & Property Details</span>
+                        <h3 class="font-serif text-2xl text-stone-900 mb-6">How to reach us</h3>
+                    </div>
+
+                    <div class="space-y-6 text-sm text-stone-700">
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-stone-500 block mb-1 font-semibold">Location</span>
+                            <p class="font-light">
+                                Near Kurukkanmoola GLP School,<br>
+                                Near Kuruvadweep Island, Wayanad,<br>
+                                Kerala, India — PIN 670731
+                            </p>
                         </div>
-                        <div class="mt-8">
-                            <h4 class="font-semibold text-gray-800 mb-4">Follow Us</h4>
-                            <div class="flex space-x-4">
-                                <a href="#"
-                                    class="w-10 h-10 bg-gray-100 rounded-full whatsapp-btn flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                                    <i class="ri-whatsapp-line ri-lg"></i>
-                                </a>
-                                <a href="#"
-                                    class="w-10 h-10 bg-gray-100 rounded-full instagram-btn flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
-                                    <i class="ri-instagram-line ri-lg"></i>
-                                </a>
-                            </div>
+
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-stone-500 block mb-1 font-semibold">Direct Telephone</span>
+                            <p class="font-light">
+                                <a href="tel:+919037052794" class="hover:text-clay transition-colors block">+91 9037052794 (Primary)</a>
+                                <a href="tel:+918073314794" class="hover:text-clay transition-colors block">+91 8073314794</a>
+                            </p>
+                        </div>
+
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-stone-500 block mb-1 font-semibold">Email</span>
+                            <p class="font-light">
+                                <a href="mailto:info@idamhomestays.com" class="hover:text-clay transition-colors">info@idamhomestays.com</a>
+                            </p>
+                        </div>
+
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-stone-500 block mb-1 font-semibold">Instagram</span>
+                            <p class="font-light">
+                                <a href="https://www.instagram.com/idam_homestay/" target="_blank" rel="noopener noreferrer" class="hover:text-clay transition-colors">@idam_homestay</a>
+                            </p>
                         </div>
                     </div>
+
+                    <div class="pt-4">
+                        <a href="https://maps.google.com/?q=Kurukkanmoola+Kuruvadweep+Wayanad+Kerala" target="_blank" rel="noopener noreferrer" class="btn-outline-dark !py-2.5 !px-5 text-xs">
+                            <i class="ri-map-pin-line"></i>
+                            <span>Open Route in Google Maps</span>
+                        </a>
+                    </div>
                 </div>
+
             </div>
+
         </div>
     </section>
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
-                <!-- About -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6">About Us</h3>
-                    <p class="text-gray-300 mb-6">IDAM is a family-owned homestay dedicated to providing
-                        authentic mountain experiences with all the comforts of home.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors whatsapp-btn">
-                            <i class="ri-whatsapp-line ri-lg"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors instagram-btn">
-                            <i class="ri-instagram-line ri-lg"></i>
-                        </a>
-                        <!-- <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                            <i class="ri-twitter-x-line ri-lg"></i>
-                        </a>
-                        <a href="#" class="text-gray-300 hover:text-white transition-colors">
-                            <i class="ri-pinterest-line ri-lg"></i>
-                        </a> -->
-                    </div>
-                </div>
-                <!-- Contact -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6">Contact</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="ri-map-pin-line ri-lg mr-3 mt-1"></i>
-                            <span>
-                                Near Kurukkanmoola GLP school,
-                                Near Kuruvadeep island, Wayanad
-                                Kerala, India</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="ri-phone-line ri-lg mr-3 mt-1"></i>
-                            <span>+91 8073314794</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="ri-mail-line ri-lg mr-3 mt-1"></i>
-                            <span>info@idamhomestays.com</span>
-                        </li>
-                    </ul>
-                </div>
+
+    <!-- Minimalist Footer -->
+    <footer class="bg-stone-900 text-stone-300 py-16 px-6 sm:px-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-b border-stone-800 pb-12">
+            <div>
+                <span class="font-serif text-2xl tracking-wider text-white block mb-1">IDAM</span>
+                <span class="text-xs text-stone-500 uppercase tracking-widest">Homestay & Retreat • Wayanad</span>
             </div>
-            <div class="border-t border-gray-700 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 mb-4 md:mb-0">&copy; 2025 IDAM Homestay. All rights reserved.</p>
-                </div>
-            </div>
+
+            <nav class="flex flex-wrap gap-6 text-xs text-stone-400">
+                <a href="#about" class="hover:text-white transition-colors">The Property</a>
+                <a href="#spaces" class="hover:text-white transition-colors">The Home</a>
+                <a href="#amenities" class="hover:text-white transition-colors">Amenities</a>
+                <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+                <a href="#around" class="hover:text-white transition-colors">Around Us</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </nav>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-stone-500 gap-4">
+            <p>&copy; 2026 Idam Homestays. Kurukkanmoola, Wayanad, Kerala.</p>
+            <p class="font-light">Quiet hospitality by the water.</p>
         </div>
     </footer>
-    <script src="./assets/js/jquery.min.js"></script>
+
+    <!-- Discreet Floating WhatsApp Action -->
+    <a href="https://wa.me/919037052794?text=Hello%20Idam%20Homestays,%20I%20would%20like%20to%20inquire%20about%20stay%20availability." target="_blank" rel="noopener noreferrer" class="floating-inquire" aria-label="Inquire on WhatsApp">
+        <span class="status-dot"></span>
+        <i class="ri-whatsapp-line text-sm"></i>
+        <span>Inquire on WhatsApp</span>
+    </a>
+
+    <!-- Core Interactions -->
     <script src="script.js"></script>
 </body>
 

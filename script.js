@@ -1,132 +1,224 @@
-$(document).ready(function () {
-  const tourButton = $('#tourButton');
-  const tourModal = document.getElementById('tourModal');
-  const closeTourModal = document.getElementById('closeTourModal');
-  const tourVideo = document.getElementById('tourVideo');
-  const prevSection = document.getElementById('prevSection');
-  const nextSection = document.getElementById('nextSection');
-  const sectionIndicator = document.getElementById('sectionIndicator');
-  const whatsappBtn = $('.whatsapp-btn');
-  const instagramBtn = $('.instagram-btn');
+/**
+ * IDAM HOMESTAYS — MINIMAL & ARCHITECTURAL INTERACTION ENGINE
+ * Tactile micro-interactions, seamless gallery, and quiet conversion handling.
+ */
 
-  let currentSection = 1;
-  const totalSections = 5;
-  const sections = [
-    '/sample_video.mp4',
-    '/sample_video.mp4',
-    '/sample_video.mp4',
-    '/sample_video.mp4',
-    '/sample_video.mp4'
-  ];
+document.addEventListener('DOMContentLoaded', () => {
+  const WHATSAPP_PHONE = '919037052794';
 
-  tourButton.on('click', () => {
-    tourModal.classList.remove('hidden');
-    tourModal.classList.add('flex');
-    tourVideo.play();
-  });
+  // 1. DYNAMIC NAVIGATION ON SCROLL
+  const siteNav = document.querySelector('.site-nav');
+  const siteNavBtn = document.querySelector('.site-nav-btn');
+  const siteNavToggle = document.querySelector('.site-nav-toggle');
 
-  closeTourModal.addEventListener('click', () => {
-    tourModal.classList.add('hidden');
-    tourModal.classList.remove('flex');
-    tourVideo.pause();
-    tourVideo.currentTime = 0;
-  });
-
-  prevSection.addEventListener('click', () => {
-    if (currentSection > 1) {
-      currentSection--;
-      updateSection();
+  const handleScroll = () => {
+    if (window.scrollY > 40) {
+      siteNav?.classList.add('scrolled');
+      if (siteNavBtn) {
+        siteNavBtn.classList.remove('btn-outline-light');
+        siteNavBtn.classList.add('btn-outline-dark');
+      }
+      if (siteNavToggle) {
+        siteNavToggle.classList.remove('text-white');
+        siteNavToggle.classList.add('text-stone-900');
+      }
+    } else {
+      siteNav?.classList.remove('scrolled');
+      if (siteNavBtn) {
+        siteNavBtn.classList.add('btn-outline-light');
+        siteNavBtn.classList.remove('btn-outline-dark');
+      }
+      if (siteNavToggle) {
+        siteNavToggle.classList.add('text-white');
+        siteNavToggle.classList.remove('text-stone-900');
+      }
     }
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll(); // Initial check
+
+  // 2. MOBILE DRAWER NAVIGATION
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const drawerLinks = document.querySelectorAll('.drawer-link');
+
+  const openDrawer = () => {
+    mobileDrawer?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeDrawer = () => {
+    mobileDrawer?.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  mobileMenuBtn?.addEventListener('click', openDrawer);
+  closeDrawerBtn?.addEventListener('click', closeDrawer);
+  mobileDrawer?.addEventListener('click', (e) => {
+    if (e.target === mobileDrawer) closeDrawer();
   });
+  drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
 
-  nextSection.addEventListener('click', () => {
-    if (currentSection < totalSections) {
-      currentSection++;
-      updateSection();
-    }
-  });
+  // 3. BOOKING DATES SETUP & CALCULATION
+  const checkinInput = document.getElementById('checkinDate');
+  const checkoutInput = document.getElementById('checkoutDate');
+  const guestSelect = document.getElementById('guestCount');
+  const checkBtn = document.getElementById('checkAvailabilityBtn');
 
-  whatsappBtn.on('click', () => {
-    window.location = "https://wa.me/9037052794";
-  });
+  const formatDate = (date) => {
+    const d = new Date(date);
+    let month = '' + (d.getMonth() + 1);
+    let day = '' + d.getDate();
+    const year = d.getFullYear();
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return [year, month, day].join('-');
+  };
 
-  instagramBtn.on('click', () => {
-    window.location = "https://www.instagram.com/idam_homestay/";
-  });
+  const today = new Date();
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  const dayAfter = new Date(today);
+  dayAfter.setDate(dayAfter.getDate() + 3);
 
-  function updateSection() {
-    tourVideo.src = sections[currentSection - 1];
-    sectionIndicator.textContent = `${currentSection}/${totalSections}`;
-    tourVideo.play();
-    updateNavigationButtons();
-  }
+  if (checkinInput && checkoutInput) {
+    checkinInput.min = formatDate(today);
+    checkinInput.value = formatDate(tomorrow);
+    checkoutInput.min = formatDate(tomorrow);
+    checkoutInput.value = formatDate(dayAfter);
 
-  function updateNavigationButtons() {
-    prevSection.style.opacity = currentSection === 1 ? '0.5' : '1';
-    prevSection.style.cursor = currentSection === 1 ? 'not-allowed' : 'pointer';
-    nextSection.style.opacity = currentSection === totalSections ? '0.5' : '1';
-    nextSection.style.cursor = currentSection === totalSections ? 'not-allowed' : 'pointer';
-  }
-
-  tourModal.addEventListener('click', (e) => {
-    if (e.target === tourModal) {
-      tourModal.classList.add('hidden');
-      tourModal.classList.remove('flex');
-      tourVideo.pause();
-      tourVideo.currentTime = 0;
-    }
-  });
-
-  // Gallery Lightbox
-  const galleryImages = document.querySelectorAll('.gallery-grid img');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const close = document.querySelector('.close');
-  galleryImages.forEach(img => {
-    img.addEventListener('click', function () {
-      lightboxImg.src = this.src;
-      lightbox.style.display = 'flex';
+    checkinInput.addEventListener('change', () => {
+      const selectedCheckin = new Date(checkinInput.value);
+      const nextDay = new Date(selectedCheckin);
+      nextDay.setDate(nextDay.getDate() + 1);
+      checkoutInput.min = formatDate(nextDay);
+      if (new Date(checkoutInput.value) <= selectedCheckin) {
+        checkoutInput.value = formatDate(nextDay);
+      }
     });
-  });
-  close.addEventListener('click', function () {
-    lightbox.style.display = 'none';
-  });
-  lightbox.addEventListener('click', function (e) {
-    if (e.target === lightbox) {
-      lightbox.style.display = 'none';
+  }
+
+  // Handle Booking Strip Click
+  checkBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    const checkin = checkinInput?.value || 'Flexible';
+    const checkout = checkoutInput?.value || 'Flexible';
+    const guests = guestSelect?.value || '2 Guests';
+
+    let nightsInfo = '';
+    if (checkin && checkout && checkin !== 'Flexible') {
+      const diffTime = Math.abs(new Date(checkout) - new Date(checkin));
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      if (diffDays > 0) nightsInfo = ` (${diffDays} night${diffDays > 1 ? 's' : ''})`;
     }
+
+    const message = `Hello Idam Homestays,\n\nI would like to check availability for the private homestay:\n• Dates: ${checkin} to ${checkout}${nightsInfo}\n• Guests: ${guests}\n\nPlease let me know if the home is available. Thank you.`;
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
   });
 
-  // Smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: 'smooth'
-        });
+  // 4. ACCORDION MICRO-INTERACTIONS
+  const accordionItems = document.querySelectorAll('.accordion-item');
+  accordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    header?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      accordionItems.forEach(other => other.classList.remove('open'));
+      if (!isOpen) {
+        item.classList.add('open');
       }
     });
   });
 
-  // Mobile menu toggle
-  const menuButton = document.querySelector('.ri-menu-line');
-  const nav = document.querySelector('nav');
-  menuButton.addEventListener('click', function () {
-    console.log("its here")
-    nav.classList.toggle('custom-nav');
-    nav.classList.toggle('hidden');
-    nav.classList.toggle('flex');
-    nav.classList.toggle('flex-col');
-    nav.classList.toggle('absolute');
-    nav.classList.toggle('top-16');
-    nav.classList.toggle('right-4');
-    nav.classList.toggle('bg-white');
-    nav.classList.toggle('p-4');
-    nav.classList.toggle('shadow-lg');
+  // 5. GALLERY FILTER & LIGHTBOX
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
+  const lightbox = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+
+  let visibleGalleryCards = [...galleryCards];
+  let activeIndex = 0;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      visibleGalleryCards = [];
+
+      galleryCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'block';
+          visibleGalleryCards.push(card);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  const openLightbox = (index) => {
+    if (!visibleGalleryCards.length) return;
+    activeIndex = (index + visibleGalleryCards.length) % visibleGalleryCards.length;
+    const card = visibleGalleryCards[activeIndex];
+    const img = card.querySelector('img');
+    const title = card.getAttribute('data-title') || 'Idam Homestay';
+
+    if (lightboxImg && img) lightboxImg.src = img.src;
+    if (lightboxTitle) lightboxTitle.textContent = title;
+    if (lightboxCounter) lightboxCounter.textContent = `${activeIndex + 1} of ${visibleGalleryCards.length}`;
+
+    lightbox?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    lightbox?.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  galleryCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = visibleGalleryCards.indexOf(card);
+      if (idx !== -1) openLightbox(idx);
+    });
+  });
+
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightboxPrev?.addEventListener('click', () => openLightbox(activeIndex - 1));
+  lightboxNext?.addEventListener('click', () => openLightbox(activeIndex + 1));
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (!lightbox?.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') openLightbox(activeIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(activeIndex + 1);
+  });
+
+  // 6. CONTACT FORM SUBMISSION
+  const contactForm = document.getElementById('contactForm');
+  contactForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('formName')?.value || '';
+    const phone = document.getElementById('formPhone')?.value || '';
+    const email = document.getElementById('formEmail')?.value || '';
+    const message = document.getElementById('formMessage')?.value || '';
+
+    const text = `Hello Idam Homestays,\n\nInquiry from Website:\n• Name: ${name}\n• Phone: ${phone}\n• Email: ${email || 'Not provided'}\n• Message: ${message}`;
+    const url = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank');
+    contactForm.reset();
   });
 });
